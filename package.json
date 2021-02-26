@@ -2,7 +2,7 @@
   "name": "yok-nuxt-lib",
   "version": "1.0.0",
   "description": "NUXT Library",
-  "main": "index.js",
+  "main": "module.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
