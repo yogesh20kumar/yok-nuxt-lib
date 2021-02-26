@@ -1,0 +1,22 @@
+{
+  "name": "yok-nuxt-lib",
+  "version": "1.0.0",
+  "description": "NUXT Library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yogesh20kumar/yok-nuxt-lib.git"
+  },
+  "keywords": [
+    "NUXT"
+  ],
+  "author": "Yogesh Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yogesh20kumar/yok-nuxt-lib/issues"
+  },
+  "homepage": "https://github.com/yogesh20kumar/yok-nuxt-lib#readme"
+}
