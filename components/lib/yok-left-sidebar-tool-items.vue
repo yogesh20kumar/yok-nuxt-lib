@@ -131,9 +131,9 @@ export default {
       });
     },
     pluginOptions() {
-      // _customCounterOptions will be added as a prop on component registration.
+      // _yokOptions will be added as a prop on component registration.
       // it will be the plugin's options object
-      return this._customCounterOptions || {};
+      return this._yokOptions || {};
     },
     // helper to get the name of our injected plugin using the namespace option
     injectedPluginName() {
