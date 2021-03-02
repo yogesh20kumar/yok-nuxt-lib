@@ -102,10 +102,26 @@ export default {
     expandedHover: false,
   }),
   computed: {
-    ...mapGetters(["getYokSidebarLock"]),
+    pluginOptions() {
+      // _yokOptions will be added as a prop on component registration.
+      // it will be the plugin's options object
+      return this._yokOptions || {};
+    },
+    // helper to get the name of our injected plugin using the namespace option
+    injectedPluginName() {
+      const { pluginOptions } = this;
+      return pluginOptions.namespace
+        ? "$" + pluginOptions.namespace
+        : undefined;
+    },
+    // helper to return the current value of the counter using our injected plugin function
+    lock() {
+      const { injectedPluginName } = this;
+      return injectedPluginName ? this[injectedPluginName].lock() : undefined;
+    },
   },
   watch: {
-    getYokSidebarLock: {
+    lock: {
       immediate: true,
       handler(lock) {
         if (this.isExpanded) return;
@@ -120,7 +136,7 @@ export default {
   },
   methods: {
     fullExpand() {
-      if (this.getYokSidebarLock) {
+      if (this.lock) {
         if (this.drawer.toolBarWidth === MINI_NAV_WIDTH) {
           this.drawer.toolBarWidth = EXPENDED_NAV_WIDTH;
           this.isExpanded = true;

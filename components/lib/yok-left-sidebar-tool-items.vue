@@ -25,8 +25,8 @@
                 :ripple="false"
                 :class="
                   navType != 'page' &&
-                  getYokLeftSidebarObj !== undefined &&
-                  getYokLeftSidebarObj.title == item.title
+                  sidebar !== undefined &&
+                  sidebar.title == item.title
                     ? 'custom-active-list'
                     : 'custom-list'
                 "
@@ -145,8 +145,12 @@ export default {
     // helper to return the current value of the counter using our injected plugin function
     lock() {
       const { injectedPluginName } = this;
+      return injectedPluginName ? this[injectedPluginName].lock() : undefined;
+    },
+    sidebar() {
+      const { injectedPluginName } = this;
       return injectedPluginName
-        ? this[injectedPluginName].lock() // same as this.$count.value()
+        ? this[injectedPluginName].sidebar()
         : undefined;
     },
   },
@@ -184,16 +188,13 @@ export default {
       if (objVal.action !== undefined) {
         this[injectedPluginName].setSidebar(objVal);
       }
-      // this.$store.commit("setYokLeftSidebarObj", this.sidebarDefaultObj);
-      // if (objVal.action !== undefined) {
-      //   this.$store.commit("setYokLeftSidebarObj", objVal);
-      // }
     },
     lockAction() {
       const { injectedPluginName } = this;
-      this[injectedPluginName].setLock(true);
-      //const isLocked = !this.$store.state.yokSidebarLock;
-      //this.$store.commit("setYokSidebarLock", isLocked);
+      const isLocked = injectedPluginName
+        ? this[injectedPluginName].lock()
+        : false;
+      this[injectedPluginName].setLock(!isLocked);
     },
   },
 };
