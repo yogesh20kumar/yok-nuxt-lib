@@ -124,18 +124,37 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["getYokLeftSidebarObj", "getYokSidebarLock"]),
+    // ...mapGetters(["getYokLeftSidebarObj", "getYokSidebarLock"]),
     getActiveItems() {
       return this.items.data.filter((item) => {
         return item.active !== false;
       });
+    },
+    pluginOptions() {
+      // _customCounterOptions will be added as a prop on component registration.
+      // it will be the plugin's options object
+      return this._customCounterOptions || {};
+    },
+    // helper to get the name of our injected plugin using the namespace option
+    injectedPluginName() {
+      const { pluginOptions } = this;
+      return pluginOptions.namespace
+        ? "$" + pluginOptions.namespace
+        : undefined;
+    },
+    // helper to return the current value of the counter using our injected plugin function
+    lock() {
+      const { injectedPluginName } = this;
+      return injectedPluginName
+        ? this[injectedPluginName].lock() // same as this.$count.value()
+        : undefined;
     },
   },
   watch: {
     items() {
       this.activeList = null;
     },
-    getYokSidebarLock: {
+    lock: {
       immediate: true,
       handler(lock) {
         const lockKey = this.items.data
@@ -160,14 +179,21 @@ export default {
         this.lockAction();
         return;
       }
-      this.$store.commit("setYokLeftSidebarObj", this.sidebarDefaultObj);
+      const { injectedPluginName } = this;
+      this[injectedPluginName].setSidebar(this.sidebarDefaultObj);
       if (objVal.action !== undefined) {
-        this.$store.commit("setYokLeftSidebarObj", objVal);
+        this[injectedPluginName].setSidebar(objVal);
       }
+      // this.$store.commit("setYokLeftSidebarObj", this.sidebarDefaultObj);
+      // if (objVal.action !== undefined) {
+      //   this.$store.commit("setYokLeftSidebarObj", objVal);
+      // }
     },
     lockAction() {
-      const isLocked = !this.$store.state.yokSidebarLock;
-      this.$store.commit("setYokSidebarLock", isLocked);
+      const { injectedPluginName } = this;
+      this[injectedPluginName].setLock(true);
+      //const isLocked = !this.$store.state.yokSidebarLock;
+      //this.$store.commit("setYokSidebarLock", isLocked);
     },
   },
 };

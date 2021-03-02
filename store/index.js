@@ -1,28 +1,15 @@
-export const state = () => ({
-  yokLeftSidebarObj: {
-    icon: null,
-    title: null,
-    action: null,
-    actionIcon: null,
-    active: null,
-  },
-  yokSidebarLock: false,
-});
-
-export const mutations = {
-  setYokLeftSidebarObj(state, data) {
-    state.yokLeftSidebarObj = data;
-  },
-  setYokSidebarLock(state, data) {
-    state.yokSidebarLock = data;
-  },
-};
-
-export const getters = {
-  getYokLeftSidebarObj: (state) => {
-    return state.yokLeftSidebarObj;
-  },
-  getYokSidebarLock(state) {
-    return state.yokSidebarLock;
-  },
+// store/index.js
+import counterModule from "./modules/counter";
+// get the options out using lodash templates
+const options = JSON.parse(`<%= JSON.stringify(options) %>`);
+// extract the namespace var
+const { namespace } = options;
+// create the plugin
+export default ({ store }, inject) => {
+  // register the module using namespace as the name.
+  // counter module takes the options object and returns an object that is a
+  // vuex store defenition
+  store.registerModule(namespace, counterModule(options), {
+    preserveState: Boolean(store.state[namespace]), // if the store module already exists, preserve it
+  });
 };
