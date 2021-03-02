@@ -12,6 +12,7 @@
 <script>
 const CONFIG_NAV_WIDTH = 0;
 export default {
+  name: "yok-left-sidebar",
   props: {
     sidebarNavItems: {
       type: Array,

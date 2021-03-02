@@ -90,6 +90,7 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
+  name: "yok-left-sidebar-tool-items",
   props: {
     keyInfo: {
       type: String,

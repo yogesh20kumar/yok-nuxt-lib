@@ -66,6 +66,7 @@ import { mapGetters } from "vuex";
 const EXPENDED_NAV_WIDTH = 300;
 const MINI_NAV_WIDTH = 105;
 export default {
+  name: "yok-left-sidebar-tool",
   props: {
     leftSpace: {
       type: Number,
