@@ -124,7 +124,6 @@ export default {
     };
   },
   computed: {
-    // ...mapGetters(["getYokLeftSidebarObj", "getYokSidebarLock"]),
     getActiveItems() {
       return this.items.data.filter((item) => {
         return item.active !== false;
