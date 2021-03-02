@@ -36,11 +36,10 @@ export default {
   },
   computed: {
     getNavItems() {
-      return (
-        (this.sidebarNavItems.length > 0 &&
-          this.sidebarNavItems[this.configTab].data) ??
-        []
-      );
+      return this.sidebarNavItems.length > 0 &&
+        this.sidebarNavItems[this.configTab].data
+        ? this.sidebarNavItems[this.configTab].data
+        : [];
     },
   },
   watch: {
