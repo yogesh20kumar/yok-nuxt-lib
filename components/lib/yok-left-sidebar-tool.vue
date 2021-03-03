@@ -169,7 +169,7 @@ export default {
   border-right: 1px solid rgba(0, 0, 0, 0.12);
 }
 .yok-left-sidebar-tool >>> .v-btn-toggle > .v-btn.v-btn {
-  opacity: 1 !important;
+  opacity: 1;
 }
 .yok-left-sidebar-tool >>> .v-navigation-drawer__content {
   padding-top: 70px;
@@ -177,18 +177,18 @@ export default {
 .yok-left-sidebar-tool
   >>> .v-btn-toggle:not(.v-btn-toggle--dense)
   .v-btn.v-btn.v-size--default {
-  height: 50px !important;
-  min-width: 50px !important;
+  height: 50px;
+  min-width: 50px;
   border: none;
 }
 .yok-left-sidebar-tool
   >>> .v-btn-toggle:not(.v-btn-toggle--dense)
   .closer-btn.v-btn.v-btn.v-size--default {
-  height: 68px !important;
-  min-width: 34px !important;
+  height: 68px;
+  min-width: 34px;
 }
 .yok-left-sidebar-tool .v-subheader {
-  color: #222222 !important;
+  color: #222222;
   height: 14px;
 }
 .yok-left-sidebar-tool .closer-icon {

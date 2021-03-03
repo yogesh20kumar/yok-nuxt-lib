@@ -166,12 +166,10 @@ export default {
           })
           .indexOf("/#lock");
         if (lockKey !== -1) {
-          // eslint-disable-next-line vue/no-mutating-props
           this.items.data[lockKey].icon = lock ? "mdi-lock" : "mdi-lock-open";
-          // eslint-disable-next-line vue/no-mutating-props
           this.items.data[lockKey].title = lock
-            ? "Lås sidemenuen op"
-            : "Lås sidemenu";
+            ? "Unlock sidebar"
+            : "Lock sidebar";
         }
       },
     },
