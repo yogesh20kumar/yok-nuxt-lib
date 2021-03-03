@@ -21,23 +21,27 @@ Component showing custom left sidebar.
 
 **NOTE**
 
-1. action key should be '/#lock' for lock sidebar functionality
-2. Props array structure like this one:
-   [
-   {
-   title: '',
-   data: [
-   {
-   icon: '',
-   title: '',
-   action: '/#lock',
-   windowModel: false,
-   actionIcon: '',
-   active: true,
-   },
-   ],
-   },
-   ]
+1. Props array structure like this one:
+
+```javascript
+;[
+  {
+    title: '',
+    data: [
+      {
+        icon: '',
+        title: '',
+        action: '/#lock',
+        windowModel: false,
+        actionIcon: '',
+        active: true,
+      },
+    ],
+  },
+]
+```
+
+2. action key should be '/#lock' for lock sidebar functionality
 
 ---
 
