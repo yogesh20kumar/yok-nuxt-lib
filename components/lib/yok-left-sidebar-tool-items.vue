@@ -217,7 +217,7 @@ export default {
   >>> .list-section
   .list-effect.theme--light.v-list-item.custom-active-list
   .v-icon::before {
-  color: #000000 !important;
+  color: #000000;
 }
 .yok-left-sidebar-tool-list
   >>> .list-section
@@ -227,7 +227,7 @@ export default {
   >>> .list-section
   .list-effect.theme--light.v-list-item:hover
   .v-icon::before {
-  color: #000000 !important;
+  color: #000000;
 }
 .yok-left-sidebar-tool-list .v-subheader {
   height: 14px;
