@@ -21,7 +21,7 @@ Component showing custom left sidebar.
 
 **NOTE**
 
-1. Props array structure like this one:
+1. Props array structure should be like this one.
 
 ```javascript
 [
