@@ -13,18 +13,18 @@ export default (options) => ({
   }),
   mutations: {
     setSidebar(state, data) {
-      state.sidebar = data;
+      state.sidebar = data
     },
     setLock(state, data) {
-      state.lock = data;
+      state.lock = data
     },
   },
   getters: {
     getSidebar: (state) => {
-      return state.sidebar;
+      return state.sidebar
     },
     getLock(state) {
-      return state.lock;
+      return state.lock
     },
   },
-});
+})

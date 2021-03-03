@@ -88,17 +88,17 @@
   </client-only>
 </template>
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex'
 export default {
-  name: "yok-left-sidebar-tool-items",
+  name: 'yok-left-sidebar-tool-items',
   props: {
     keyInfo: {
       type: String,
-      default: "0",
+      default: '0',
     },
     navType: {
       type: String,
-      default: "page",
+      default: 'page',
     },
     expanded: {
       type: Boolean,
@@ -107,7 +107,7 @@ export default {
     items: {
       type: Object,
       default: () => {
-        return {};
+        return {}
       },
     },
   },
@@ -121,80 +121,76 @@ export default {
         actionIcon: null,
         active: null,
       },
-    };
+    }
   },
   computed: {
     getActiveItems() {
       return this.items.data.filter((item) => {
-        return item.active !== false;
-      });
+        return item.active !== false
+      })
     },
     pluginOptions() {
       // _yokOptions will be added as a prop on component registration.
       // it will be the plugin's options object
-      return this._yokOptions || {};
+      return this._yokOptions || {}
     },
     // helper to get the name of our injected plugin using the namespace option
     injectedPluginName() {
-      const { pluginOptions } = this;
-      return pluginOptions.namespace
-        ? "$" + pluginOptions.namespace
-        : undefined;
+      const { pluginOptions } = this
+      return pluginOptions.namespace ? '$' + pluginOptions.namespace : undefined
     },
     // helper to return the current value of the counter using our injected plugin function
     lock() {
-      const { injectedPluginName } = this;
-      return injectedPluginName ? this[injectedPluginName].lock() : undefined;
+      const { injectedPluginName } = this
+      return injectedPluginName ? this[injectedPluginName].lock() : undefined
     },
     sidebar() {
-      const { injectedPluginName } = this;
-      return injectedPluginName
-        ? this[injectedPluginName].sidebar()
-        : undefined;
+      const { injectedPluginName } = this
+      return injectedPluginName ? this[injectedPluginName].sidebar() : undefined
     },
   },
   watch: {
     items() {
-      this.activeList = null;
+      this.activeList = null
     },
     lock: {
       immediate: true,
       handler(lock) {
         const lockKey = this.items.data
           .map(function (dt) {
-            return dt.action;
+            return dt.action
           })
-          .indexOf("/#lock");
+          .indexOf('/#lock')
         if (lockKey !== -1) {
-          this.items.data[lockKey].icon = lock ? "mdi-lock" : "mdi-lock-open";
+          this.items.data[lockKey].icon = lock ? 'mdi-lock' : 'mdi-lock-open'
           this.items.data[lockKey].title = lock
-            ? "Unlock sidebar"
-            : "Lock sidebar";
+            ? 'Unlock sidebar'
+            : 'Lock sidebar'
         }
       },
     },
   },
   methods: {
     setValue(objVal) {
-      if (objVal.action !== undefined && objVal.action === "/#lock") {
-        this.lockAction();
-        return;
+      if (objVal.action !== undefined && objVal.action === '/#lock') {
+        this.lockAction()
+        return
       }
-      const { injectedPluginName } = this;
-      this[injectedPluginName].setSidebar(this.sidebarDefaultObj);
+      const { injectedPluginName } = this
+      this[injectedPluginName].setSidebar(this.sidebarDefaultObj)
       if (objVal.action !== undefined) {
-        this[injectedPluginName].setSidebar(objVal);
+        this[injectedPluginName].setSidebar(objVal)
       }
     },
     lockAction() {
-      const { injectedPluginName } = this;
+      const { injectedPluginName } = this
       const isLocked = injectedPluginName
         ? this[injectedPluginName].lock()
-        : false;
-      this[injectedPluginName].setLock(!isLocked);
+        : false
+      this[injectedPluginName].setLock(!isLocked)
     },
   },
-};
+}
 </script>
 <style scoped>
 .yok-left-sidebar-tool-list >>> .v-list--dense .v-list-item .v-list-item__icon {

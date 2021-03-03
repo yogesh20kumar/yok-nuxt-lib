@@ -1,11 +1,11 @@
-import Vue from "vue";
-import * as components from "./lib";
+import Vue from 'vue'
+import * as components from './lib'
 
 // Get options passed from module.js
-const options = JSON.parse(`<%= JSON.stringify(options) %>`);
+const options = JSON.parse(`<%= JSON.stringify(options) %>`)
 
 for (const name in components) {
-  const component = components[name];
+  const component = components[name]
   Vue.component(component.name, {
     // Extend the original component
     extends: component,
@@ -16,5 +16,5 @@ for (const name in components) {
         default: () => ({ ...options }),
       },
     },
-  });
+  })
 }

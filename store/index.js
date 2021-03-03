@@ -1,9 +1,9 @@
 // store/index.js
-import sidebarModule from "./modules/sidebar";
+import sidebarModule from './modules/sidebar'
 // get the options out using lodash templates
-const options = JSON.parse(`<%= JSON.stringify(options) %>`);
+const options = JSON.parse(`<%= JSON.stringify(options) %>`)
 // extract the namespace var
-const { namespace } = options;
+const { namespace } = options
 // create the plugin
 export default ({ store }, inject) => {
   // register the module using namespace as the name.
@@ -11,5 +11,5 @@ export default ({ store }, inject) => {
   // vuex store defenition
   store.registerModule(namespace, sidebarModule(options), {
     preserveState: Boolean(store.state[namespace]), // if the store module already exists, preserve it
-  });
-};
+  })
+}

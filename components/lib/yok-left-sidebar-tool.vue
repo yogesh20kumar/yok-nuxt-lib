@@ -28,7 +28,7 @@
               @click.stop="fullExpand"
             >
               <v-icon size="30" color="white"
-                >mdi-{{ `chevron-${isExpanded ? "left" : "right"}` }}</v-icon
+                >mdi-{{ `chevron-${isExpanded ? 'left' : 'right'}` }}</v-icon
               >
             </v-btn>
           </v-btn-toggle>
@@ -62,11 +62,11 @@
   </div>
 </template>
 <script>
-import { mapGetters } from "vuex";
-const EXPENDED_NAV_WIDTH = 300;
-const MINI_NAV_WIDTH = 105;
+import { mapGetters } from 'vuex'
+const EXPENDED_NAV_WIDTH = 300
+const MINI_NAV_WIDTH = 105
 export default {
-  name: "yok-left-sidebar-tool",
+  name: 'yok-left-sidebar-tool',
   props: {
     leftSpace: {
       type: Number,
@@ -75,13 +75,13 @@ export default {
     navItems: {
       type: Array,
       default: () => {
-        return [];
+        return []
       },
     },
     commonNavItems: {
       type: Array,
       default: () => {
-        return [];
+        return []
       },
     },
   },
@@ -97,7 +97,7 @@ export default {
       miniVariantWidth: 0,
     },
     mini: true,
-    configTab: "",
+    configTab: '',
     isExpanded: false,
     expandedHover: false,
   }),
@@ -105,31 +105,29 @@ export default {
     pluginOptions() {
       // _yokOptions will be added as a prop on component registration.
       // it will be the plugin's options object
-      return this._yokOptions || {};
+      return this._yokOptions || {}
     },
     // helper to get the name of our injected plugin using the namespace option
     injectedPluginName() {
-      const { pluginOptions } = this;
-      return pluginOptions.namespace
-        ? "$" + pluginOptions.namespace
-        : undefined;
+      const { pluginOptions } = this
+      return pluginOptions.namespace ? '$' + pluginOptions.namespace : undefined
     },
     // helper to return the current value of the counter using our injected plugin function
     lock() {
-      const { injectedPluginName } = this;
-      return injectedPluginName ? this[injectedPluginName].lock() : undefined;
+      const { injectedPluginName } = this
+      return injectedPluginName ? this[injectedPluginName].lock() : undefined
     },
   },
   watch: {
     lock: {
       immediate: true,
       handler(lock) {
-        if (this.isExpanded) return;
-        this.drawer.expandOnHover = !lock;
+        if (this.isExpanded) return
+        this.drawer.expandOnHover = !lock
         if (!lock) {
-          this.drawer.expandOnHover = true;
-          this.drawer.toolBarWidth = MINI_NAV_WIDTH;
-          this.drawer.miniVariantWidth = 0;
+          this.drawer.expandOnHover = true
+          this.drawer.toolBarWidth = MINI_NAV_WIDTH
+          this.drawer.miniVariantWidth = 0
         }
       },
     },
@@ -138,31 +136,31 @@ export default {
     fullExpand() {
       if (this.lock) {
         if (this.drawer.toolBarWidth === MINI_NAV_WIDTH) {
-          this.drawer.toolBarWidth = EXPENDED_NAV_WIDTH;
-          this.isExpanded = true;
+          this.drawer.toolBarWidth = EXPENDED_NAV_WIDTH
+          this.isExpanded = true
         } else {
-          this.drawer.toolBarWidth = MINI_NAV_WIDTH;
-          this.drawer.miniVariantWidth = 0;
-          this.isExpanded = false;
+          this.drawer.toolBarWidth = MINI_NAV_WIDTH
+          this.drawer.miniVariantWidth = 0
+          this.isExpanded = false
         }
       } else if (this.drawer.expandOnHover) {
-        this.drawer.expandOnHover = false;
-        this.drawer.toolBarWidth = EXPENDED_NAV_WIDTH;
-        this.isExpanded = true;
+        this.drawer.expandOnHover = false
+        this.drawer.toolBarWidth = EXPENDED_NAV_WIDTH
+        this.isExpanded = true
       } else {
-        this.drawer.expandOnHover = true;
-        this.drawer.toolBarWidth = MINI_NAV_WIDTH;
-        this.drawer.miniVariantWidth = 0;
-        this.mini = false;
-        this.isExpanded = false;
+        this.drawer.expandOnHover = true
+        this.drawer.toolBarWidth = MINI_NAV_WIDTH
+        this.drawer.miniVariantWidth = 0
+        this.mini = false
+        this.isExpanded = false
       }
     },
     drawerHandler() {
-      this.$emit("change-tool-mini-variant", this.mini);
-      this.mini = !this.mini;
+      this.$emit('change-tool-mini-variant', this.mini)
+      this.mini = !this.mini
     },
   },
-};
+}
 </script>
 <style scoped>
 .yok-left-sidebar-tool .v-navigation-drawer {

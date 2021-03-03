@@ -6,41 +6,41 @@
 // with our namespace exists
 const storeModuleExists = ({ state, namespace }) => {
   if (!state || !state[namespace]) {
-    console.error(`${namespace} nuxt module error: store not initialized`);
-    return false;
+    console.error(`${namespace} nuxt module error: store not initialized`)
+    return false
   } else {
-    return true;
+    return true
   }
-};
+}
 
 // function to return the current value of the selected sidebar
 export const sidebar = ({ state, namespace }) => {
   // handle no store:
-  if (!storeModuleExists({ state, namespace })) return undefined;
+  if (!storeModuleExists({ state, namespace })) return undefined
   // return the sidebar object from the store
-  return state[namespace].sidebar;
-};
+  return state[namespace].sidebar
+}
 
 // function to return the sidebar lock value (true/false)
 export const lock = ({ state, namespace }) => {
   // handle no store:
-  if (!storeModuleExists({ state, namespace })) return undefined;
+  if (!storeModuleExists({ state, namespace })) return undefined
   // return the lock value from the store
-  return state[namespace].lock;
-};
+  return state[namespace].lock
+}
 
 // functions to adjust the sidebar object
 export const setSidebar = ({ state, store, namespace, adjustment }) => {
   // handle no store:
-  if (!storeModuleExists({ state, namespace })) return undefined;
+  if (!storeModuleExists({ state, namespace })) return undefined
   // adjust the value of the sidebar object using a store mutation
-  return store.commit(`${namespace}/setSidebar`, adjustment);
-};
+  return store.commit(`${namespace}/setSidebar`, adjustment)
+}
 
 // functions to adjust the lock value (true/false)
 export const setLock = ({ state, store, namespace, adjustment }) => {
   // handle no store:
-  if (!storeModuleExists({ state, namespace })) return undefined;
+  if (!storeModuleExists({ state, namespace })) return undefined
   // adjust the value of the lock using a store mutation
-  return store.commit(`${namespace}/setLock`, adjustment);
-};
+  return store.commit(`${namespace}/setLock`, adjustment)
+}
