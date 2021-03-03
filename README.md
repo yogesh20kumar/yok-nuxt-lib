@@ -23,8 +23,7 @@ Component showing custom left sidebar.
 
 1. Props array structure like this one:
 
-```javascript
-;[
+```javascript[
   {
     title: '',
     data: [
