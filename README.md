@@ -24,7 +24,7 @@ Component showing custom left sidebar.
 1. Props array structure should be like this one.
 
 ```javascript
-[
+;[
   {
     title: '',
     data: [
@@ -41,7 +41,16 @@ Component showing custom left sidebar.
 ]
 ```
 
-2. action key should be '/#lock' for lock sidebar functionality
+2. `action` key should be '/#lock' for lock sidebar functionality
+
+3. Activate the Store (To activate the store with the classic mode, we create the store/index.js file)
+
+4. Getting sidebar information via store
+
+```javascript
+$store.state.yok.sidebar
+$store.state.yok.lock
+```
 
 ---
 
