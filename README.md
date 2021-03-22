@@ -60,3 +60,44 @@ $store.state.yok.lock
 | ------------------------ | ----- | ------- | ----------------------------------------------------------------------------------------------- |
 | sidebar-nav-items        | Array | []      | Nav items list which will be shown on top of sidebar.                                           |
 | sidebar-common-nav-items | Array | []      | Fixed nav items like lock, settings, help etc. It will be shown into the bottom part of sidebar |
+
+### yok-tool-btn
+
+Component showing tool button.
+
+---
+
+**NOTE**
+
+1. Props array structure should be like this one.
+
+```javascript
+;[
+  {
+    icon: '',
+    title: '',
+    action: '',
+    subMenu: [
+      {
+        icon: '',
+        title: '',
+        action: '',
+      },
+    ],
+  },
+]
+```
+
+---
+
+#### Props
+
+| Name  | Type  | Default | Description            |
+| ----- | ----- | ------- | ---------------------- |
+| items | Array | []      | Tool item listing data |
+
+#### Events
+
+| Name        | Arguments    | Description                        |
+| ----------- | ------------ | ---------------------------------- |
+| tool-action | Current item | Emitted when tool item is clicked. |
