@@ -20,7 +20,7 @@
                 icon
                 v-bind="attrs"
                 v-on="on"
-                @click.stop="callBack(item)"
+                @click.stop="callToolAction(item)"
               >
                 <v-icon>
                   {{ item.icon }}
@@ -34,7 +34,7 @@
               <v-list-item
                 v-for="(menu, index) in item.subMenu"
                 :key="index"
-                @click.stop="callBack(menu)"
+                @click.stop="callToolAction(menu)"
               >
                 <v-list-item-title>
                   <v-icon>mdi-check</v-icon>
@@ -64,7 +64,7 @@ export default {
     }
   },
   methods: {
-    callBack(item) {
+    callToolAction(item) {
       if (item.subMenu !== undefined && item.subMenu.length >= 1) return
       this.$emit('tool-action', item)
     },
