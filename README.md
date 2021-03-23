@@ -101,3 +101,41 @@ Component showing tool button.
 | Name        | Arguments    | Description                        |
 | ----------- | ------------ | ---------------------------------- |
 | tool-action | Current item | Emitted when tool item is clicked. |
+
+### yok-search-address
+
+Component showing search field with address API.
+
+---
+
+**NOTE**
+
+1. Need to define address search api details in env object form nuxt.config.js
+
+```javascript
+addressSearchAPI: {
+      URL: ''
+      epsg: 4326,
+      limit: 10,
+      country: '',
+      autocomplete: true,
+      fuzzy: false,
+    }
+```
+
+---
+
+#### Props
+
+| Name               | Type    | Default       | Description                   |
+| ------------------ | ------- | ------------- | ----------------------------- |
+| append-icon        | String  | ''            | Append icon                   |
+| prepend-inner-icon | String  | 'mdi-magnify' | Prepend inner icon            |
+| make-clear         | Boolean | true          | Make clear field after search |
+
+#### Events
+
+| Name              | Arguments      | Description                                        |
+| ----------------- | -------------- | -------------------------------------------------- |
+| append-icon-event | Current item   | Emitted when append icon is clicked.               |
+| address-details   | Address object | Emitted when a item is selected from address list. |
