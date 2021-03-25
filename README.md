@@ -9,6 +9,12 @@ Nuxtjs Reuseable Component Library
 $ npm install -s git+https://github.com/yogesh20kumar/yok-nuxt-lib.git#master
 ```
 
+Set yok-nuxt-lib into the nuxt.config.js
+
+```javascript
+modules: ['yok-nuxt-lib'],
+```
+
 ## Components
 
 How to use each component available in this project.
