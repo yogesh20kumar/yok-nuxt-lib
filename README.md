@@ -145,3 +145,50 @@ addressSearchAPI: {
 | ----------------- | -------------- | -------------------------------------------------- |
 | append-icon-event | Current item   | Emitted when append icon is clicked.               |
 | address-details   | Address object | Emitted when a item is selected from address list. |
+
+### yok-data-filter
+
+Component showing add/edit property filter options.
+
+---
+
+**NOTE**
+
+1. Props array structure should be like this one.
+
+```javascript
+items: [
+  {
+    id: 1,
+    name: 'Mine filtre',
+    children: [
+      {
+        id: 101,
+        name: 'Filter 1',
+        isDefault: false,
+      },
+      {
+        id: 102,
+        name: 'Filter 2',
+        isDefault: false,
+      },
+    ],
+  },
+]
+```
+
+---
+
+#### Props
+
+| Name  | Type   | Default  | Description                            |
+| ----- | ------ | -------- | -------------------------------------- |
+| title | String | 'Filter' | Filter title                           |
+| items | Array  | []       | List of all default and custom filters |
+
+#### Events
+
+| Name          | Arguments     | Description                                         |
+| ------------- | ------------- | --------------------------------------------------- |
+| add-filter    | -             | Emitted when add filter clicked.                    |
+| filter-action | Action object | Emitted when a filter is selected from filter list. |
