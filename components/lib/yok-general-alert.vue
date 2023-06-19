@@ -1,5 +1,5 @@
 <template>
-  <v-alert :type="type" border="left" colored-border tile dense>
+  <v-alert :type="type" border="left" class="yok-general-alert" colored-border tile dense>
     <v-row align="center">
       <v-col class="grow">
         <div v-html="message" />
@@ -12,7 +12,6 @@
     </v-row>
   </v-alert>
 </template>
-
 <script>
 export default {
   name: 'yok-general-alert',
@@ -35,5 +34,4 @@ export default {
   },
 }
 </script>
-
 <style></style>
