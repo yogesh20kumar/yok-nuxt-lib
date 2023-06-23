@@ -4,7 +4,7 @@
       <v-col class="grow">
         <div v-html="message" />
       </v-col>
-      <v-col v-if="actionFunction !== null" class="shrink">
+      <v-col v-if="actionFunction !== null" class="shrink share-btn-link">
         <v-btn :color="type" @click="performAction" outlined>
           {{ actionText }}
         </v-btn>
